@@ -1,0 +1,23 @@
+Client Requirements:
+-> Making new plan need that to be on main screen (Done)
+-> Show members in the circle (Done)
+-> Sharing plan does not show real groups
+
+New Work Done:
+Backend Side:
+-> Get offers based on interest
+-> Send offers in groups / circles
+-> Get offers in specific circle in combination with messages
+-> Buy Offer
+-> Send Plan in groups / circles.
+App Side:
+-> Get offers
+-> Get offer details
+-> Get and show offers in circles
+-> Offer details inside chat screen
+-> Buy offer.
+
+Remaining (App Side):
+-> Add people to offer.
+-> Send offers in groups / circles.
+-> Send Plan in groups / circles.

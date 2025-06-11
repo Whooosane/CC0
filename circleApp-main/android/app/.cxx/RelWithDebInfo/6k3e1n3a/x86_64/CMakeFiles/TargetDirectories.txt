@@ -1,0 +1,2 @@
+C:/Users/Zeeshan Rana/AndroidStudioProjects/circleApp/android/app/.cxx/RelWithDebInfo/6k3e1n3a/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/Zeeshan Rana/AndroidStudioProjects/circleApp/android/app/.cxx/RelWithDebInfo/6k3e1n3a/x86_64/CMakeFiles/rebuild_cache.dir
