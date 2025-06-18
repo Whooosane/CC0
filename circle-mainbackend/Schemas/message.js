@@ -1,0 +1,75 @@
+const Joi = require("joi");
+
+const messageSchema = Joi.object({
+  message: Joi.string().allow("").default(""),
+  circleId: Joi.string().required().messages({
+    "string.base": `"circleId" should be a type of 'text'`,
+    "string.empty": `"circleId" cannot be an empty field`,
+    "any.required": `"circleId" is a required field`,
+  }),
+  type: Joi.string().required().valid("text", "offer", "plan").messages({
+    "string.base": `"type" should be a type of 'text, offer or plan'`,
+    "string.empty": `"type" cannot be an empty field`,
+  }),
+  //   sender: Joi.string().required().messages({
+  //     "string.base": `"sender" should be a type of 'text'`,
+  //     "string.empty": `"sender" cannot be an empty field`,
+  //     "any.required": `"sender" is a required field`,
+  //   }),
+  planId: Joi.string()
+    .when("type", {
+      is: "plan",
+      then: Joi.required().messages({
+        "string.base": `"planId" should be a type of 'text'`,
+        "string.empty": `"planId" cannot be an empty field`,
+        "any.required": `"planId" is a required field`,
+      }),
+    })
+    .default(""),
+  offerId: Joi.string()
+    .when("type", {
+      is: "offer",
+      then: Joi.required().messages({
+        "string.base": `"offerId" should be a type of 'text'`,
+        "string.empty": `"offerId" cannot be an empty field`,
+        "any.required": `"offerId" is a required field`,
+      }),
+    })
+    .default(""),
+  itineraryId: Joi.string().allow(null).default(null).messages({
+    "string.base": `"itineraryId" should be a type of 'text'`,
+  }),
+  media: Joi.array()
+    .items(
+      Joi.object({
+        type: Joi.string()
+          .required()
+          .valid("image", "video", "audio", "document")
+          .messages({
+            "string.base": `"type" should be a type of 'text'`,
+            "string.empty": `"type" cannot be an empty field`,
+            "any.required": `"type" is a required field`,
+            "any.only": `"type" should be one of 'image', 'video', 'audio'`,
+          }),
+        url: Joi.string().required().uri().messages({
+          "string.base": `"url" should be a type of 'text'`,
+          "string.empty": `"url" cannot be an empty field`,
+          "string.uri": `"url" must be a valid URI`,
+          "any.required": `"url" is a required field`,
+        }),
+        mimetype: Joi.string().required().messages({
+          "string.base": `"mimetype" should be a type of 'text'`,
+          "string.empty": `"mimetype" cannot be an empty field`,
+          "any.required": `"mimetype" is a required field`,
+        }),
+      })
+    )
+    .messages({
+      "array.base": `"media" should be a type of 'array'`,
+    }),
+  pinned: Joi.boolean().default(false),
+});
+
+module.exports = {
+  messageSchema,
+};

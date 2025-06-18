@@ -1,0 +1,17 @@
+email circlessocialmediaapp@gmail.com
+pass is 309102713Sphere
+
+Dashboard is fine, just one note the date filter should be duration for campaigns
+campaigns should be set by how long they want it and not just a specific day
+
+
+Previously Done:
+
+
+Current Done:
+-> email functionality
+
+
+Remaining:
+-> email functionality testing
+-> server transfer
